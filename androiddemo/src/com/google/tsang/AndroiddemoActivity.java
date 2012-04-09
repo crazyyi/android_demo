@@ -1,6 +1,7 @@
 package com.google.tsang;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 
 public class AndroiddemoActivity extends Activity {
@@ -9,5 +10,7 @@ public class AndroiddemoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        FragmentManager fm = getFragmentManager();
     }
 }
