@@ -16,7 +16,7 @@ import android.widget.ListView;
  * @author Yi Zeng
  *
  */
-public class AndroiddemoActivity extends ListActivity 
+public class AndroidDemoActivity extends ListActivity 
     implements OnItemClickListener {
     /** Called when the activity is first created. */
     @Override

@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * A dialog fragment designed for gallery display
@@ -47,9 +49,17 @@ public class GalleryDialog extends DialogFragment {
         // Get images from resource
         initImages();
         
-        Gallery gallery = (Gallery) v.findViewById(R.id.gallery);
-        String dialogContent = getArguments().getString(DIALOG_CONTENT);
-        gallery.setAdapter(new ImageAdapter(getActivity(), getImages(dialogContent)));
+        final Gallery gallery = (Gallery) v.findViewById(R.id.gallery);
+        final String dialogContent = getArguments().getString(DIALOG_CONTENT);
+        final Integer[] images = getImages(dialogContent);
+        
+        if (images == null) {
+            Toast.makeText(getActivity(), "No images for this state.", Toast.LENGTH_SHORT);
+            Log.v("log", "No images for this state.");
+        }
+        else {
+            gallery.setAdapter(new ImageAdapter(getActivity(), images));
+        }
         
         // Set the title for the dialog
         int title = getArguments().getInt(DIALOG_TITLE);
@@ -91,7 +101,9 @@ public class GalleryDialog extends DialogFragment {
     };
     private Integer[] imageWA = {
             R.drawable.wa,
-            R.drawable.wa_rock
+            R.drawable.wa_rock,
+            R.drawable.perth,
+            R.drawable.wa3
     };
     private Integer[] imageNT = {
             R.drawable.na1,
@@ -110,35 +122,44 @@ public class GalleryDialog extends DialogFragment {
     
     final Map<String, Integer[]> imageMap = new HashMap<String, Integer[]>();
     
+    /**
+     * Get images array with given content name
+     * 
+     * @param dialogContent
+     * @return
+     */
     private Integer[] getImages(String dialogContent) {
         return imageMap.get(dialogContent);
     }
     
+    /**
+     * Puts related images into a map
+     */
     private void initImages() {
-        for (String s : getResources().getStringArray(R.array.list_content)) {
-            if ("New South Wales".equals(s)) {
-                imageMap.put(s, imageNSW);
+        for (String stateName : getResources().getStringArray(R.array.list_content)) {
+            if ("New South Wales".equals(stateName)) {
+                imageMap.put(stateName, imageNSW);
             }
-            else if ("Victoria".equals(s)) {
-                imageMap.put(s, imageVIC);
+            else if ("Victoria".equals(stateName)) {
+                imageMap.put(stateName, imageVIC);
             }
-            else if ("South Australia".equals(s)) {
-                imageMap.put(s, imageSA);
+            else if ("South Australia".equals(stateName)) {
+                imageMap.put(stateName, imageSA);
             }
-            else if ("Queensland".equals(s)) {
-                imageMap.put(s, imageQueensland);
+            else if ("Queensland".equals(stateName)) {
+                imageMap.put(stateName, imageQueensland);
             }
-            else if ("Western Australia".equals(s)) {
-                imageMap.put(s, imageWA);
+            else if ("Western Australia".equals(stateName)) {
+                imageMap.put(stateName, imageWA);
             }
-            else if ("Australian Capital Territory".equals(s)) {
-                imageMap.put(s, imageACT);
+            else if ("Australian Capital Territory".equals(stateName)) {
+                imageMap.put(stateName, imageACT);
             }
-            else if ("Northern Territory".equals(s)) {
-                imageMap.put(s, imageNT);
+            else if ("Northern Territory".equals(stateName)) {
+                imageMap.put(stateName, imageNT);
             }
-            else if ("Tasmania".equals(s)) {
-                imageMap.put(s, imageTasmania);
+            else if ("Tasmania".equals(stateName)) {
+                imageMap.put(stateName, imageTasmania);
             }
         }
     }
