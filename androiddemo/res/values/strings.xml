@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, AndroiddemoActivity!</string>
-    <string name="app_name">Androiddemo</string>
+    <string name="app_name">androiddemo</string>
+    <string name="dialog_title">State Images</string>
+    <string name="btn_text_back">Back</string>
+
+    <string-array name="list_content">
+        <item>New South Wales</item>
+        <item>Victoria</item>
+        <item>Queensland</item>
+        <item>South Australia</item>
+        <item>Australian Capital Territory</item>
+        <item>Northern Territory</item>
+        <item>Western Australia</item>
+        <item>Tasmania</item>
+    </string-array>
 
 </resources>
