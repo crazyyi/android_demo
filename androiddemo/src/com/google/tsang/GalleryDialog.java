@@ -25,6 +25,7 @@ import android.widget.Toast;
  */
 public class GalleryDialog extends DialogFragment {
     
+    private static final String NO_IMAGES_FOR_THIS_STATE = "No images for this state.";
     private static final String DIALOG_TITLE = "title";
     private static final String DIALOG_CONTENT = "dialogContent";
 
@@ -54,8 +55,8 @@ public class GalleryDialog extends DialogFragment {
         final Integer[] images = getImages(dialogContent);
         
         if (images == null) {
-            Toast.makeText(getActivity(), "No images for this state.", Toast.LENGTH_SHORT);
-            Log.v("log", "No images for this state.");
+            Toast.makeText(getActivity(), NO_IMAGES_FOR_THIS_STATE, Toast.LENGTH_SHORT);
+            Log.v("log", NO_IMAGES_FOR_THIS_STATE);
         }
         else {
             gallery.setAdapter(new ImageAdapter(getActivity(), images));
