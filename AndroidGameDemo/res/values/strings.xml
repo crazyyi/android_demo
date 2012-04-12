@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, AndroidGameDemoActivity!</string>
+    <string name="app_name">AndroidGameDemo</string>
+    <string-array name="gameLists">
+        <item>Simple</item>
+    </string-array>
+    <string name="simple_game_name">Simple Game</string>
+
+</resources>
