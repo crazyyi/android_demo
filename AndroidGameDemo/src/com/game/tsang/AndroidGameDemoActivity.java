@@ -27,10 +27,33 @@ public class AndroidGameDemoActivity extends ListActivity
     public void onItemClick(AdapterView<?> parent, View view, int position,
             long id) {
         String selectedGame = (String) parent.getItemAtPosition(position);
-        Intent intent = new Intent(this, SimpleGame.class);
+        Intent intent = new Intent();
+        if ("Key Test".equals(selectedGame)) {
+            intent.setClass(this, KeyDemo.class);
+        }
+        else if ("Multitouch Test".equals(selectedGame)) {
+            intent.setClass(this, MultiTouch.class);
+        }
+        else if ("Accelerometer Test".equals(selectedGame)) {
+            intent.setClass(this, AccelerometerDemo.class);
+        }
+        else if ("Load File".equals(selectedGame)) {
+            intent.setClass(this, LoadingFile.class);
+        }
+        else if ("Sound Effect".equals(selectedGame)) {
+            intent.setClass(this, SoundEffect.class);
+        }
+        else if ("Media Player".equals(selectedGame)) {
+            intent.setClass(this, MediaPlayerDemo.class);
+        }
+        else if ("RenderView Demo".equals(selectedGame)) {
+            intent.setClass(this, RenderViewDemo.class);
+        }
+        else if ("Simple Shape Demo".equals(selectedGame)) {
+            intent.setClass(this, SimpleShapeDemo.class);
+        }
         intent.putExtra("selected", selectedGame);
         startActivity(intent);
     }
-    
     
 }

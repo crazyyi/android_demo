@@ -4,8 +4,22 @@
     <string name="hello">Hello World, AndroidGameDemoActivity!</string>
     <string name="app_name">AndroidGameDemo</string>
     <string-array name="gameLists">
-        <item>Simple</item>
+        <item>Multitouch Test</item>
+        <item>Key Test</item>
+        <item>Accelerometer Test</item>
+        <item>Load File</item>
+        <item>Sound Effect</item>
+        <item>Media Player</item>
+        <item>RenderView Demo</item>
+        <item>Simple Shape Demo</item>
     </string-array>
-    <string name="simple_game_name">Simple Game</string>
+    <string name="simple_game_name">Multitouch Test</string>
+    <string name="key_demo">Key Test</string>
+    <string name="accelerometer_demo">Accelerometer Test</string>
+    <string name="load_file_demo">Load File</string>
+    <string name="sound_effect_demo">Sound Effect</string>
+    <string name="media_player_demo">Media Player demo</string>
+    <string name="renderview_demo">Render View demo</string>
+    <string name="simple_shape_demo">Simple Shape demo</string>
 
 </resources>
